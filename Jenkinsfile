@@ -31,7 +31,7 @@ pipeline{
         stage('docker build & docker push to nexus repo'){
             steps{
                 script{
-                    withCredentials([string(credentialsId: 'nexus_passwd', variable: 'nexus_creds')]) 
+                    withCredentials([string(credentialsId: 'nexus_passwd', variable: 'nexus_creds')]) {
                   sh '''
                    docker build -t 13.60.18.70:8083/springapp:${VERSION} .
                    docker login -u admin -p siva 13.60.18.70:8083
